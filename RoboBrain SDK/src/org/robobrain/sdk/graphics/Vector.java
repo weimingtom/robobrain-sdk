@@ -76,12 +76,24 @@ class Vector implements Cloneable {
 		return this;
 	}
 	
+  /**
+	 * Subtracts a Vector from this one.
+	 * @param x
+	 * The x component to subtract from this Vector.
+	 * @param y
+	 * The y component to subtract from this Vector.
+	 */
 	public Vector subtract(float x, float y) {
 		this.x -= x;
 		this.x -= y;
 		return this;
 	}
 	
+  /**
+	 * Subtracts a Vector from this one.
+	 * @param vector
+	 * The Vector to subtract from this one.
+	 */ 
 	public Vector subtract(Vector vector) {
 		this.x -= vector.x;
 		this.x -= vector.y;
