@@ -28,28 +28,48 @@ import android.util.FloatMath;
  *
  */
 class Vector implements Cloneable {
+	/** Constant used to convert degrees to radians. */
 	public static final float TO_RADIANS = (1.0f / 180.0f) * (float)Math.PI;
+	
+	/** Constant used to convert radians to degrees. */
 	public static final float TO_DEGREES = (1.0f / (float)Math.PI) * 180.0f;
 	
+	/** The Vector's distance from the origin on the X-axis. */
 	public float x;
+	
+	/** The Vector's distance from the origin on the Y-axis. */
 	public float y;
 	
+	/** Initializes the Vector at the origin. */
 	public Vector() {
 		x = 0;
 		y = 0;
 	}
 	
+	/** Initializes the Vector at a specified point in space. */
 	public Vector(float x, float y) {
 		this.x = x;
 		this.y = y;
 	}
 	
+	/** 
+	 * Adds a Vector to this one. 
+	 * @param x
+	 * The x component to add to this Vector.
+	 * @param y
+	 * The y component to add to this Vector.
+	 */
 	public Vector add(float x, float y) {
 		this.x += x;
 		this.x += y;
 		return this;
 	}
 	
+	/** 
+	 * Adds a Vector to this one. 
+	 * @param vector
+	 * The Vector to add to this one.
+	 */
 	public Vector add(Vector vector) {
 		this.x += vector.x;
 		this.x += vector.y;
