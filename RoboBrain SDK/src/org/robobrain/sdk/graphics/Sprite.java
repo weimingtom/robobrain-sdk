@@ -65,6 +65,8 @@ public class Sprite extends Renderable{
 	protected float mLeft;
 	protected float mRight;
 	protected int mTime;
+	protected boolean mPlaying;
+	
 	
 	/**
 	 * Initializes the Sprite. Note: Sprites default to an animation frame rate of 15fps.
@@ -108,6 +110,8 @@ public class Sprite extends Renderable{
 		
 		color = Color.WHITE;
 		
+		mPlaying = true;
+		
 		generateFrameVerts();
 	}
 	
@@ -118,6 +122,10 @@ public class Sprite extends Renderable{
 	 */
 	@Override
 	public void update(long time) {
+		Log.d("Sprite", "Frame: " + (mCurrentFrame + 1));
+		if (!mPlaying) {
+			return;
+		}
 		mTime += time;
 		if (mTime < 66) {
 			return;
@@ -189,6 +197,46 @@ public class Sprite extends Renderable{
 		mBottom = ((float)bottom) * mRowUnit;
 	}
 	
+	/**
+	 * Starts playing the Sprite's animation.
+	 */
+	public void play() {
+		mPlaying = true;
+	}
+	
+	/**
+	 * Stops the Sprite from playing it's animation.
+	 */
+	public void stop() {
+		mPlaying = false;
+	}
+	
+	/** 
+	 * Set the current frame number.
+	 * @param frame
+	 * The frame you would like to set the Sprite to.
+	 */
+	public void setFrame(int frame) {
+		if (frame < 1) {
+			frame = 1;
+		}
+		if (frame > mMaxFrames ) {
+			frame = mMaxFrames;
+		}
+		mCurrentFrame = frame - 1;
+		generateFrameRect();
+		generateFrameVerts();
+	}
+	
+	/** 
+	 * Gets the current frame number.
+	 * @return
+	 * The current frame number.
+	 */
+	public int getFrame() {
+		return mCurrentFrame + 1;
+	}
+	
 	
 	/**
 	 * Gets the width of the Sprite. It is equal to the width of one frame of animation.
@@ -196,7 +244,7 @@ public class Sprite extends Renderable{
 	 * The width of the SimpleSprite in pixels.
 	 */
 	@Override
-	public int getWidth() { return mWidth; }
+	public int getWidth() { return mWidth * (int)GLRenderer.getScale() * (int)scale; }
 	
 	/**
 	 * Gets the height of the Sprite. It is equal to the width of one frame of animation.
@@ -204,21 +252,21 @@ public class Sprite extends Renderable{
 	 * The height of the SimpleSprite in pixels.
 	 */
 	@Override
-	public int getHeight() { return mHeight; }
+	public int getHeight() { return mHeight * (int)GLRenderer.getScale() * (int)scale; }
 	
 	/**
 	 * One half of the Sprite's height.
 	 * @return
 	 * The height of the Sprite divided by 2.
 	 */
-	public int getHalfWidth() { return mWidth; }
+	public int getHalfWidth() { return mHalfWidth  * (int)GLRenderer.getScale() * (int)scale; }
 	
 	/**
 	 * One half of the Sprite's width.
 	 * @return
 	 * The width of the Sprite divided by 2.
 	 */
-	public int getHalfHeight() { return mHeight; }
+	public int getHalfHeight() { return mHalfHeight * (int)GLRenderer.getScale() * (int)scale; }
 	
 	/**
 	 * Gets the Texture used by the SimpleSprite.
