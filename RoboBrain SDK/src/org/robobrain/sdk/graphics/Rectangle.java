@@ -61,7 +61,7 @@ public class Rectangle {
 	}
 	
 	/**
-	 * Determins if the Rectangle intersects with another Rectangle.
+	 * Determines if the Rectangle intersects with another Rectangle.
 	 * @param rect
 	 * The other Rectangle to test against.
 	 * @return
@@ -75,6 +75,23 @@ public class Rectangle {
 			return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * Determines if a point is within the Rectangles boundaries.
+	 * @param x
+	 * The point's x component.
+	 * @param y
+	 * The point's y component.
+	 * @return
+	 * Returns true if the point is contained within the Rectangle.
+	 */
+	public boolean containsPoint(float x, float y) {
+		if ((x > getLeft()) && (x < getRight()) &&
+		    (y > getTop()) && (y < getBottom())) {
+			return true;
+		}
+		return false;
 	}
 	
 	/*
