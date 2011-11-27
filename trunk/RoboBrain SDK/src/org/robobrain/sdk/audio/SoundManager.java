@@ -87,7 +87,7 @@ public class SoundManager {
 		if (r != 0) {
 			snd.editID = r;
 			sSounds.remove(id);
-			sSounds.put(id, (snd.clone()));
+			sSounds.put(id, snd);
 		}
 	}
 	
@@ -111,11 +111,17 @@ public class SoundManager {
 			l = -1;
 		}
 		int result = sSoundPool.play(snd.id, snd.leftVol, snd.rightVol, 0, l, 1);
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException ex) {
+			// do nothing
+		}
 		if (result != 0) {
 			snd.editID = result;
 			sSounds.remove(id);
-			sSounds.put(id, (snd.clone()));
-		}
+			sSounds.put(id, snd);
+		} 
+		Log.v("SoundManager", "Play");
 	}
 	
 	/**
@@ -174,9 +180,20 @@ public class SoundManager {
 			return;
 		}
 		Sound snd = sSounds.get(id);
-		sSoundPool.pause(snd.id);
+		sSoundPool.stop(snd.id);
 		if (snd.editID != 0) {
-			sSoundPool.pause(snd.editID);
+			sSoundPool.stop(snd.editID);
+		} else {
+			Log.e("SoundManager", "Error stopping sound.");
+		}
+	}
+	
+	/**
+	 * Stops all playing sounds.
+	 */
+	public static void stopAll() {
+		for (int id : sSounds.keySet()) {
+			stop(id);
 		}
 	}
 	
