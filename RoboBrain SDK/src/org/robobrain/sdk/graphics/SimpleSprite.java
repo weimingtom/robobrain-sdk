@@ -68,6 +68,30 @@ public class SimpleSprite extends Renderable {
 		mHalfWidth = mWidth / 2;
 		mHalfHeight = mHeight / 2;
 		
+		x = 0;
+		y = 0;
+		scale = 1.0f;
+		color = Color.WHITE;
+	}
+	
+	/**
+	 * Draws the Texture to the screen.
+	 * @param gl
+	 * A valid OpenGL ES 1.0 object.
+	 */
+	@Override
+	public void draw(GL10 gl) {
+		generateFrameVerts();
+		gl.glColor4f(color.r, color.g, color.b, color.a);
+		gl.glMatrixMode(GL10.GL_MODELVIEW);
+		gl.glLoadIdentity();
+		gl.glTranslatef(x, y, 0);
+		gl.glRotatef(rotation, 0, 0, 1);
+		gl.glScalef(scale * GLRenderer.getScale(), scale * GLRenderer.getScale(), 1.0f);
+		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, mIndices);
+	}
+	
+	private void generateFrameVerts() {	
 		// Vertices
 		float[] verts = { 
 			-mHalfWidth, -mHalfHeight, 0.0f, 0.0f,
@@ -94,27 +118,6 @@ public class SimpleSprite extends Renderable {
 		mIndices = buf2.asShortBuffer();
 		mIndices.put(ind);
 		mIndices.position(0);
-		
-		x = 0;
-		y = 0;
-		scale = 1.0f;
-		color = Color.WHITE;
-	}
-	
-	/**
-	 * Draws the Texture to the screen.
-	 * @param gl
-	 * A valid OpenGL ES 1.0 object.
-	 */
-	@Override
-	public void draw(GL10 gl) {
-		gl.glColor4f(color.r, color.g, color.b, color.a);
-		gl.glMatrixMode(GL10.GL_MODELVIEW);
-		gl.glLoadIdentity();
-		gl.glTranslatef(x, y, 0);
-		gl.glRotatef(rotation, 0, 0, 1);
-		gl.glScalef(scale * GLRenderer.getScale(), scale * GLRenderer.getScale(), 1.0f);
-		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, mIndices);
 	}
 	
 	/**
