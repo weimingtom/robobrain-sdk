@@ -111,8 +111,6 @@ public class Sprite extends Renderable{
 		color = Color.WHITE;
 		
 		mPlaying = true;
-		
-		generateFrameVerts();
 	}
 	
 	/**
@@ -122,8 +120,10 @@ public class Sprite extends Renderable{
 	 */
 	@Override
 	public void update(long time) {
-		Log.d("Sprite", "Frame: " + (mCurrentFrame + 1));
 		if (!mPlaying) {
+			return;
+		}
+		if (mMaxFrames == 1) {
 			return;
 		}
 		mTime += time;
@@ -135,8 +135,6 @@ public class Sprite extends Renderable{
 		if (mCurrentFrame > (mMaxFrames - 1)) {
 			mCurrentFrame = 0;
 		}
-		generateFrameRect();
-		generateFrameVerts();
 	}
 	
 	/**
@@ -146,7 +144,12 @@ public class Sprite extends Renderable{
 	 */
 	@Override
 	public void draw(GL10 gl){
+		generateFrameRect();
+		generateFrameVerts();
 		gl.glColor4f(color.r, color.g, color.b, color.a);
+		if (mTexture != null) {
+			gl.glBindTexture(GL10.GL_TEXTURE_2D, mTexture.getGLID());
+		}
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		gl.glLoadIdentity();
 		gl.glTranslatef(x, y, 0);
@@ -156,7 +159,14 @@ public class Sprite extends Renderable{
 	}
 	
 	private void generateFrameVerts() {		
-		// Vertices
+		
+		if (mMaxFrames == 1) {
+			mLeft = 0;
+			mRight = 1;
+			mTop = 0;
+			mBottom = 1;
+		}
+		
 		float[] verts = { 
 			-mHalfWidth, -mHalfHeight, mLeft, mTop,
 			mHalfWidth, -mHalfHeight, mRight, mTop,
@@ -164,7 +174,19 @@ public class Sprite extends Renderable{
 			-mHalfWidth, mHalfHeight, mLeft, mBottom,	
 		};
 		
+		if (mVertices != null) {
+			mVertices.clear();
+		}
+		
+		if (mIndices != null) {
+			mIndices.clear();
+		}
+		
 		GL10 gl = GLRenderer.getGL();
+		if (gl == null) {
+			Log.e("Sprite", "OpenGL object is null while creating vertex array.");
+			return;
+		}
 		
 		// Vertices
 		ByteBuffer buf = ByteBuffer.allocateDirect(4 * VERTEX_SIZE);
