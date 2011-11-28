@@ -25,6 +25,7 @@ public class SoundActivity extends GameActivity {
 	@Override
 	public void onPause() {
 		super.onPause();
+		SoundManager.stopAll();
 		//SoundManager.unloadAll();
 		//SoundManager.release();
 	}
