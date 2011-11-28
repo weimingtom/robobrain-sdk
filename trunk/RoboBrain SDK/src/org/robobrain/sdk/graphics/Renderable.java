@@ -51,6 +51,11 @@ public class Renderable {
 	public float scale;
 	
 	/**
+	 * Set to false if you don't want to draw the Renderable.
+	 */
+	public boolean visible;
+	
+	/**
 	 * Updates the Renderable each frame.
 	 * @param time
 	 * The number of milliseconds elapsed since the last frame.
