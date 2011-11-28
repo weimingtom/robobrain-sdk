@@ -21,6 +21,8 @@
 
 package org.robobrain.sdk;
 
+import org.robobrain.sdk.audio.MusicManager;
+import org.robobrain.sdk.audio.SoundManager;
 import org.robobrain.sdk.game.Engine;
 import org.robobrain.sdk.graphics.Color;
 import org.robobrain.sdk.graphics.TextureManager;
@@ -30,6 +32,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -82,7 +85,7 @@ public class GameActivity extends Activity {
      * activity to start interacting with the user.
      */
     @Override 
-    public void onResume() {
+    protected void onResume() {
     	super.onResume();
     	if (mGame != null) {
     		mGame.play();
@@ -98,7 +101,7 @@ public class GameActivity extends Activity {
      * background, but has not (yet) been killed. 
      */
     @Override 
-    public void onPause() {
+    protected void onPause() {
     	super.onPause();
     	TextureManager.unloadAll();
     	if (mGame != null) {
@@ -107,6 +110,8 @@ public class GameActivity extends Activity {
     	if (mGLView != null) {
     		mGLView.onPause();
     	}
+    	SoundManager.stopAll();
+    	MusicManager.pause();
     }
     
     /**
@@ -118,7 +123,9 @@ public class GameActivity extends Activity {
     @Override
     protected void onDestroy() {
     	super.onDestroy();
-    	TextureManager.unloadAll();
+    	TextureManager.release();
+    	SoundManager.release();
+    	MusicManager.release();
     	if (mGame != null) {
     		mGame.shutdown();
     	}
@@ -138,6 +145,11 @@ public class GameActivity extends Activity {
      * Registers a game Engine class to be used by this Activity to run a game.
      */
     public void registerGame(Engine game) {
+    	if (mGLView == null) {
+    		Log.e("GameActivity", "Null GLView passed into registerGame.");
+    		Log.e("GameActivity", "Did you forget to call initRenderer() in onCreate()?");
+    		return;
+    	}
     	mGLView.registerGame(game);
     }
     
