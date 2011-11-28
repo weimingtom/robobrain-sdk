@@ -245,14 +245,7 @@ public class Entity {
 	 * A valid OpenGL ES 1.0 object.
 	 */
 	public void draw(GL10 gl) {
-		if (mRenderable.getTexture() != null) {
-			gl.glBindTexture(GL10.GL_TEXTURE_2D, mRenderable.getTexture().getGLID());
-		} else {
-			Log.w("Renderer", "Renderable:" + mRenderable.toString() + ", contains invalid texture.");
-			gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
-		}
 		mRenderable.draw(gl);
-		gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
 	}
 
 }
