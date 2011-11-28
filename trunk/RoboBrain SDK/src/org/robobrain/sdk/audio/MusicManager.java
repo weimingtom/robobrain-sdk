@@ -70,6 +70,10 @@ public class MusicManager {
 			init();
 		}
 		
+		if (mPlayer == null) {
+			return;
+		}
+		
 		if (mSet) {
 			clear();
 		}
@@ -100,6 +104,9 @@ public class MusicManager {
 		if (!mInitialized) {
 			return;
 		}
+		if (mPlayer == null) {
+			return;
+		}
 		if (mStopped) {
 			try {
 				mPlayer.prepare();
@@ -125,6 +132,9 @@ public class MusicManager {
 		if (mReset) {
 			return;
 		}
+		if (mPlayer == null) {
+			return;
+		}
 		if (mPlayer.isPlaying()) {
 			mPlayer.stop();
 			mStopped = true;
@@ -136,6 +146,9 @@ public class MusicManager {
 	 */
 	public static void pause() {
 		if (!mInitialized) {
+			return;
+		}
+		if (mPlayer == null) {
 			return;
 		}
 		if (mStopped) {
@@ -150,6 +163,9 @@ public class MusicManager {
 	 */
 	public static void clear() {
 		if (!mInitialized) {
+			return;
+		}
+		if (mPlayer == null) {
 			return;
 		}
 		if (mPlayer.isPlaying()) {
@@ -168,10 +184,14 @@ public class MusicManager {
 		if (!mInitialized) {
 			return;
 		}
+		if (mPlayer == null) {
+			return;
+		}
 		if (mSet) {
 			clear();
 		}
 		mPlayer.release();
+		mInitialized = false;
 	}
 	
 	/**
@@ -180,6 +200,9 @@ public class MusicManager {
 	 */
 	public static void setVolume(float value) {
 		if (!mInitialized) {
+			return;
+		}
+		if (mPlayer == null) {
 			return;
 		}
 		if (value < 0.0f)

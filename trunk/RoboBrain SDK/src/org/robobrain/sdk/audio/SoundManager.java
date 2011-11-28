@@ -33,6 +33,9 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.Log;
 
+// TODO: Fix sounds & music to track playing sounds and restart them when view changes
+// from portrait to landscape and vice versa
+
 public class SoundManager {
 	/** Maximum number of channels that can be mixed at one time. */
 	public static final int MAX_CHANNELS = 32;
@@ -75,6 +78,9 @@ public class SoundManager {
 		if (!sInitialized) {
 			return;
 		}
+		if (sSounds == null) {
+			return;
+		}
 		if (!sSounds.containsKey(id)) {
 			return;
 		}
@@ -103,6 +109,9 @@ public class SoundManager {
 			return;
 		}
 		if (!sSounds.containsKey(id)) {
+			return;
+		}
+		if (sSounds == null) {
 			return;
 		}
 		Sound snd = sSounds.get(id);
@@ -137,6 +146,9 @@ public class SoundManager {
 		if (!sInitialized) {
 			return;
 		}
+		if (sSounds == null) {
+			return;
+		}
 		if (!sSounds.containsKey(id)) {
 			return;
 		}
@@ -158,6 +170,9 @@ public class SoundManager {
 		if (!sInitialized) {
 			return;
 		}
+		if (sSounds == null) {
+			return;
+		}
 		if (!sSounds.containsKey(id)) {
 			return;
 		}
@@ -176,6 +191,9 @@ public class SoundManager {
 		if (!sInitialized) {
 			return;
 		}
+		if (sSounds == null) {
+			return;
+		}
 		if (!sSounds.containsKey(id)) {
 			return;
 		}
@@ -192,6 +210,12 @@ public class SoundManager {
 	 * Stops all playing sounds.
 	 */
 	public static void stopAll() {
+		if (!sInitialized) {
+			return;
+		}
+		if (sSounds == null) {
+			return;
+		}
 		for (int id : sSounds.keySet()) {
 			stop(id);
 		}
@@ -206,6 +230,9 @@ public class SoundManager {
 		if (!sInitialized) {
 			return;
 		}
+		if (sSounds == null) {
+			return;
+		}
 		if (!sSounds.containsKey(id)) {
 			return;
 		}
@@ -218,6 +245,12 @@ public class SoundManager {
 	 * Unloads all sounds loaded by SoundManager.
 	 */
 	public static void unloadAll() {
+		if (!sInitialized) {
+			return;
+		}
+		if (sSounds == null) {
+			return;
+		}
 		for (int id : sSounds.keySet()) {
 			unloadSound(id);
 		}
@@ -229,6 +262,12 @@ public class SoundManager {
 	 * before shutting down your game.
 	 */
 	public static void release() {
+		if (!sInitialized) {
+			return;
+		}
+		if (sSounds == null) {
+			return;
+		}
 		if (sSounds.size() > 0) {
 			unloadAll();
 		}
