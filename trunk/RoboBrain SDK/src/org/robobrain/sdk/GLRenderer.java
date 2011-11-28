@@ -84,15 +84,9 @@ public class GLRenderer implements GLSurfaceView.Renderer {
 		}
 		mStartTime = System.currentTimeMillis();
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-		Entity[] list = null;
 		if (mEngine != null) {
 			mEngine.update(mDeltaTime);
-			list = mEngine.getDisplayList();
-		}
-		if (list != null) {
-			for (int i = 0; i < list.length; i++) {
-				list[i].draw(gl);
-			}
+			mEngine.render(gl);
 		}
 		mEndTime = System.currentTimeMillis();
 		mDeltaTime = mEndTime - mStartTime;
