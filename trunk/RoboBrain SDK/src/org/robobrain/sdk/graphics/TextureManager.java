@@ -117,6 +117,16 @@ public class TextureManager {
 	}
 	
 	/**
+	 * Releases any memory associated with the TextureManager.
+	 */
+	public static void release() {
+		unloadAll();
+		if (mTextures != null) {
+			mTextures.clear();
+		}
+	}
+	
+	/**
 	 * loads all textures into video memory.
 	 */
 	public static void loadAll() {
