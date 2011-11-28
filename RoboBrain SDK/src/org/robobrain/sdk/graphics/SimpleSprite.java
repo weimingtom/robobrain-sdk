@@ -72,6 +72,7 @@ public class SimpleSprite extends Renderable {
 		y = 0;
 		scale = 1.0f;
 		color = Color.WHITE;
+		visible = true;
 	}
 	
 	/**
@@ -81,6 +82,9 @@ public class SimpleSprite extends Renderable {
 	 */
 	@Override
 	public void draw(GL10 gl) {
+		if (!visible) {
+			return;
+		}
 		generateFrameVerts();
 		gl.glColor4f(color.r, color.g, color.b, color.a);
 		gl.glMatrixMode(GL10.GL_MODELVIEW);

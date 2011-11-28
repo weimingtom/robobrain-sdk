@@ -111,6 +111,7 @@ public class Sprite extends Renderable{
 		color = Color.WHITE;
 		
 		mPlaying = true;
+		visible = true;
 	}
 	
 	/**
@@ -144,6 +145,9 @@ public class Sprite extends Renderable{
 	 */
 	@Override
 	public void draw(GL10 gl){
+		if (!visible) {
+			return;
+		}
 		generateFrameRect();
 		generateFrameVerts();
 		gl.glColor4f(color.r, color.g, color.b, color.a);
