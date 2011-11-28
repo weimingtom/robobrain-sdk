@@ -23,6 +23,8 @@ package org.robobrain.sdk.game;
 
 import java.util.ArrayList;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import org.robobrain.sdk.GLRenderer;
 
 import android.util.Log;
@@ -74,6 +76,15 @@ public class World extends Entity {
 					r.onCollision(s);
 				}
 			}
+		}
+	}
+	
+	public void render(GL10 gl) {
+		int c = mEntities.size();
+		for (int i = 0; i < c; i++) {
+			gl.glBindTexture(GL10.GL_TEXTURE_2D, 0);
+			Entity e = mEntities.get(i);
+			e.draw(gl);
 		}
 	}
 	

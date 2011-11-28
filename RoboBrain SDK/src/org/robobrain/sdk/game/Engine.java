@@ -21,6 +21,8 @@
 
 package org.robobrain.sdk.game;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import org.robobrain.sdk.GLRenderer;
 import org.robobrain.sdk.audio.MusicManager;
 import org.robobrain.sdk.audio.SoundManager;
@@ -76,6 +78,16 @@ public class Engine {
 			return;
 		}
 		mWorld.update(time);
+	}
+	
+	public void render(GL10 gl) {
+		if (mPaused) {
+			return;
+		}
+		if (mWorld == null) {
+			return;
+		}
+		mWorld.render(gl);
 	}
 	
 	/**
