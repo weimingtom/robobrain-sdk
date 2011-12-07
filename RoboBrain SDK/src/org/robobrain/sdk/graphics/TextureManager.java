@@ -112,6 +112,8 @@ public class TextureManager {
 		}
 		for (Texture tex : mTextures.values()) {
 			unloadTexture(tex);
+			mTextures.remove(tex.getID());
+			mTextures.put(tex.getID(), tex);
 		}
 		//mTextures.clear();
 	}
