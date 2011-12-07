@@ -27,7 +27,7 @@ import android.util.FloatMath;
  * @author James Johnson
  *
  */
-class Vector implements Cloneable {
+public class Vector implements Cloneable {
 	/** Constant used to convert degrees to radians. */
 	public static final float TO_RADIANS = (1.0f / 180.0f) * (float)Math.PI;
 	
@@ -58,6 +58,7 @@ class Vector implements Cloneable {
 	 * The x component to add to this Vector.
 	 * @param y
 	 * The y component to add to this Vector.
+	 * @return
 	 */
 	public Vector add(float x, float y) {
 		this.x += x;
@@ -69,6 +70,7 @@ class Vector implements Cloneable {
 	 * Adds a Vector to this one. 
 	 * @param vector
 	 * The Vector to add to this one.
+	 * @return
 	 */
 	public Vector add(Vector vector) {
 		this.x += vector.x;
@@ -76,12 +78,13 @@ class Vector implements Cloneable {
 		return this;
 	}
 	
-  /**
+    /**
 	 * Subtracts a Vector from this one.
 	 * @param x
 	 * The x component to subtract from this Vector.
 	 * @param y
 	 * The y component to subtract from this Vector.
+	 * @return
 	 */
 	public Vector subtract(float x, float y) {
 		this.x -= x;
@@ -89,10 +92,11 @@ class Vector implements Cloneable {
 		return this;
 	}
 	
-  /**
+    /**
 	 * Subtracts a Vector from this one.
 	 * @param vector
 	 * The Vector to subtract from this one.
+	 * @return
 	 */ 
 	public Vector subtract(Vector vector) {
 		this.x -= vector.x;
@@ -100,6 +104,13 @@ class Vector implements Cloneable {
 		return this;
 	}
 	
+	/**
+	 * Multiplies this Vector by a scalar.
+	 * @param scalar
+	 * The number to multiply both components by.
+	 * @return
+	 * This Vector after it has been multiplied.
+	 */
 	public Vector multiply(float scalar) {
 		this.x *= scalar;
 		this.x *= scalar;
