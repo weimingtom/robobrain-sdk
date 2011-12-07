@@ -84,6 +84,20 @@ public class Renderable {
 	public int getHeight() { return 0;}
 	
 	/**
+	 * Gets the width of the Renderable divided by 2.
+	 * @return
+	 * The half of the width of the Renderable in pixels.
+	 */
+	public int getHalfWidth() { return getWidth() / 2; }
+	
+	/**
+	 * Gets the height of the Renderable divided by 2.
+	 * @return
+	 * The half of the height of the Renderable in pixels.
+	 */
+	public int getHalfHeight() { return getHeight() / 2;}
+	
+	/**
 	 * Gets the Texture used by the Renderable.
 	 * @return
 	 * The Texture used by the Renderable.
