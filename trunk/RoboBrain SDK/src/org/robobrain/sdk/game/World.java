@@ -77,6 +77,14 @@ public class World extends Entity {
 				}
 			}
 		}
+		
+		// Remove dead entities
+		for (int i = 0; i < mEntities.size(); i++) { 
+			Entity e = mEntities.get(i);
+			if (e.remove) {
+				removeEntity(e);
+			}
+		}
 	}
 	
 	public void render(GL10 gl) {
@@ -99,6 +107,18 @@ public class World extends Entity {
 			return;
 		}
 		mEntities.add(entity);
+	}
+	
+	/**
+	 * Removes an Entity from the World.
+	 * @param entity
+	 * The Entity to be removed.
+	 */
+	protected void removeEntity(Entity entity) {
+		if (entity == null) {
+			return;
+		}
+		mEntities.remove(entity);
 	}
 	
 	/**
