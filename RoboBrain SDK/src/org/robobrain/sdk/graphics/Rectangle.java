@@ -68,9 +68,9 @@ public class Rectangle {
 	 * Returns true if the Rectangles intersect.  
 	 */
 	public boolean intersects(Rectangle rect) {
-		if ((rect.getRight() < getLeft()) &&
-			(rect.getLeft() > getRight()) && 
-			(rect.getTop() > getBottom()) && 
+		if ((rect.getRight() < getLeft()) ||
+			(rect.getLeft() > getRight()) || 
+			(rect.getTop() > getBottom()) || 
 			(rect.getBottom() < getTop())) {
 			return false;
 		}
