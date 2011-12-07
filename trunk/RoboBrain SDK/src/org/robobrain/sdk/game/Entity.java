@@ -71,6 +71,17 @@ public class Entity {
 	 */
 	protected float mFriction;
 	
+	/**
+	 * A user created code to represent an Entity's type. For example: A
+	 * spaceship, a missile, sword or enemy type.
+	 */
+	public int type;
+	
+	/**
+	 * Used by the World to determine when to remove this Entity.
+	 */
+	public boolean remove;
+	
 	public Entity() {
 		vx = 0;
 		vy = 0;
@@ -79,6 +90,7 @@ public class Entity {
 		mRenderable = null;
 		mSpeed = 1;
 		mFriction = 0.8f;
+		type = 0;
 	}
 	
 	/**
@@ -115,6 +127,13 @@ public class Entity {
 	 */
 	public void onBounds(int width, int height) {
 		
+	}
+	
+	/**
+	 * Removes the Entity from the World.
+	 */
+	public void kill() {
+		remove = true;
 	}
 	
 	/**
@@ -223,8 +242,8 @@ public class Entity {
 	 * The Entity's bounding Rectangle.
 	 */
 	public Rectangle getRect() {
-		return new Rectangle((int)(mRenderable.x - mRenderable.getWidth()) / 2,
-							 (int)(mRenderable.y - mRenderable.getHeight()) / 2,
+		return new Rectangle((int)(mRenderable.x - mRenderable.getHalfWidth()),
+							 (int)(mRenderable.y - mRenderable.getHalfHeight()),
 							 mRenderable.getWidth(),
 							 mRenderable.getHeight());
 	}
@@ -247,5 +266,7 @@ public class Entity {
 	public void draw(GL10 gl) {
 		mRenderable.draw(gl);
 	}
+	
+	// TODO: Add kill() function
 
 }
