@@ -129,6 +129,7 @@ public class GameActivity extends Activity {
     	if (mGame != null) {
     		mGame.shutdown();
     	}
+    	System.gc();
     	mGame = null;
     	sContext = null;
     	mGLView  = null;
