@@ -1,45 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
-    <Button
-        android:id="@+id/spriteExampleBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Sprite Example" android:onClick="onSpriteExampleClick"/>
-
-    <Button
-        android:id="@+id/fontExampleBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Font Example" android:onClick="onFontExampleClick"/>
-
-    <Button
-        android:id="@+id/inputExampleBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onInputExampleClick"
-        android:text="Input Example" />
-
-    <Button
-        android:id="@+id/soundExampleBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onSoundExampleClick"
-        android:text="Sound Example" />
-
-    <Button
-        android:id="@+id/musicExampleBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Music Example" android:onClick="onMusicExampleClick"/>
-
-    <Button
-        android:id="@+id/layoutExampleBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Layout Example" android:onClick="onLayoutExampleClick"/>
-
-</LinearLayout>
