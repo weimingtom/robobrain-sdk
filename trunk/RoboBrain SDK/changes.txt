@@ -1,3 +1,27 @@
+r59 | robobrainsdk@gmail.com | 2011-12-14 20:55:48 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Refactored World.update() to use new Entity collision rectangle and collision detection functions.
+----------------------------------------------------------------------------
+r58 | robobrainsdk@gmail.com | 2011-12-14 20:51:41 EST
+Changed paths:
+    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/util/package-info.java
+    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/package-info.java
+    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/input/package-info.java
+    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/package-info.java
+    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/package-info.java
+    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/package-info.java
+
+Added package level javadoc comments.
+----------------------------------------------------------------------------
+r57 | robobrainsdk@gmail.com | 2011-12-14 20:50:59 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added collision rectangle separate from bounding rectangle.
+Added collision detection function.
+----------------------------------------------------------------------------
 r40 | James Johnson | 2011-12-06 21:31:11 EST
 Changed paths:
 	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Vector.java
@@ -8,7 +32,8 @@ r39 | James Johnson | 2011-12-06 21:30:42 EST
 Changed paths:
 	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
 
-Changed unloadTexture() to make sure entries in mTextures get updated with unloaded texture references.
+Changed unloadTexture() to make sure entries in mTextures get updated with 
+unloaded texture references.
 ----------------------------------------------------------------------------
 r38 | James Johnson | 2011-12-06 21:18:17 EST
 Changed paths:
@@ -46,7 +71,8 @@ r18 | James Johnson | 2011-11-27 19:52:29 EST
 Changed paths:
 	M /trunk/RoboBrain SDK/src/org/robobrain/test/SoundActivity.java
 
-Changed event handlers to stop playing sounds on pause and kill the sounds when the Activity is destroyed.
+Changed event handlers to stop playing sounds on pause and kill the sounds 
+when the Activity is destroyed.
 ----------------------------------------------------------------------------
 r17 | James Johnson | 2011-11-27 19:21:52 EST
 Changed paths:
@@ -79,7 +105,8 @@ r13 | James Johnson | 2011-11-27 19:15:01 EST
 Changed paths:
 	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
 
-Handled uncaught exceptions when methods are called after releasing resources.
+Handled uncaught exceptions when methods are called after 
+releasing resources.
 Added TextureManager.release() method.
 ----------------------------------------------------------------------------
 r12 | James Johnson | 2011-11-27 19:14:14 EST
@@ -87,13 +114,15 @@ Changed paths:
 	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/SoundManager.java
 	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/MusicManager.java
 
-Handled uncaught exceptions when methods are called after releasing resources.
+Handled uncaught exceptions when methods are called after 
+releasing resources.
 ----------------------------------------------------------------------------
 r11 | James Johnson | 2011-11-27 19:11:22 EST
 Changed paths:
 	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/GameActivity.java
 
-Added graceful handling of unloading and destroying resources when paused or destroyed.
+Added graceful handling of unloading and destroying resources when paused 
+or destroyed.
 ----------------------------------------------------------------------------
 r10 | James Johnson | 2011-11-27 16:06:22 EST
 Changed paths:
