@@ -71,7 +71,7 @@ public class World extends Entity {
 			for (int j = i + 1; j < count; j++) {
 				Entity s = mEntities.get(i);
 				Entity r = mEntities.get(j);
-				if (s.getRect().intersects(r.getRect())) {
+				if (s.hasCollided(r)) {
 					s.onCollision(r);
 					r.onCollision(s);
 				}
