@@ -249,6 +249,30 @@ public class Entity {
 	}
 	
 	/**
+	 * Gets the Entity's collision Rectangle.
+	 * @return
+	 * The Entity's collision Rectangle.
+	 */
+	public Rectangle getCollisionRect() {
+		return getRect();
+	}
+	
+	/**
+	 * Determines if the Entity has collided with another Entity.
+	 * @param receiver	the Entity to test against.
+	 * @return
+	 * true if a collision occurred. 
+	 */
+	public boolean hasCollided(Entity receiver) {
+		Rectangle rect = getCollisionRect();
+		if (rect.intersects(receiver.getCollisionRect())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	/**
 	 * Gets the Renderable object used to represent the Entity. 
 	 * Usually a Sprite.
 	 * @return
