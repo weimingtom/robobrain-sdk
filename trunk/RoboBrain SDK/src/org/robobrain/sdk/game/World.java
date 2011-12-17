@@ -109,6 +109,15 @@ public class World extends Entity {
 		mEntities.add(entity);
 	}
 	
+	public void addEntityAtBottom(Entity entity) {
+		if (entity == null) {
+			Log.w("World", "Null Enity passed to addEntityAtBottom().");
+			return;
+		}
+		mEntities.add(0, entity);
+	}
+	
+	
 	/**
 	 * Removes an Entity from the World.
 	 * @param entity
