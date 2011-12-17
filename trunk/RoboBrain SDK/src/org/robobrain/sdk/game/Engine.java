@@ -28,6 +28,7 @@ import org.robobrain.sdk.audio.MusicManager;
 import org.robobrain.sdk.audio.SoundManager;
 import org.robobrain.sdk.graphics.Renderable;
 import org.robobrain.sdk.graphics.TextureManager;
+import org.robobrain.sdk.input.Multitouch;
 
 import android.util.Log;
 
@@ -78,6 +79,7 @@ public class Engine {
 			return;
 		}
 		mWorld.update(time);
+		Multitouch.clear();
 	}
 	
 	public void render(GL10 gl) {
