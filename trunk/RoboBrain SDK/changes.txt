@@ -1,3 +1,31 @@
+r69 | robobrainsdk@gmail.com | 2011-12-21 21:03:57 EST
+Changed paths:
+    D /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.1.jar
+    A /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.4.jar
+    D /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.2.jar
+
+Beta 0.2.4 libraries.
+----------------------------------------------------------------------------
+r68 | robobrainsdk@gmail.com | 2011-12-21 21:02:33 EST
+Changed paths:
+    A /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.3.1.jar
+
+Bug fix library for Space Rocks tutorial 3.
+----------------------------------------------------------------------------
+r67 | robobrainsdk@gmail.com | 2011-12-21 21:01:33 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+
+Fixed divide by zero bug in frame rect calculations.
+Added method to clear accumulated time used to calculate animations.
+----------------------------------------------------------------------------
+r66 | robobrainsdk@gmail.com | 2011-12-21 20:59:34 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added public x,y position fields.
+Deprecated position mutators. (getY(), setX(), etc.)
+----------------------------------------------------------------------------
 r59 | robobrainsdk@gmail.com | 2011-12-14 20:55:48 EST
 Changed paths:
     M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
