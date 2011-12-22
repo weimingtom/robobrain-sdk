@@ -212,8 +212,14 @@ public class Sprite extends Renderable{
 	}
 	
 	private void generateFrameRect() {
+	    if (mColumns < 1) {
+	        mColumns = 1;
+	    }
 		int left = mCurrentFrame % mColumns;
 		int right = left + 1;
+		if (mRows < 1) {
+		    mRows = 1;
+		}
 		int top = mCurrentFrame / mRows;
 		int bottom = top + 1;
 		
@@ -304,5 +310,11 @@ public class Sprite extends Renderable{
 		return mTexture; 
 	}
 	
+	/**
+	 * Clears the internal clock that keeps track of frame time.
+	 */
+	public void clearTime() {
+	    mTime = 0;
+	}
 	//public int getTextureID() { return mTexture.getGLID(); }
 }
