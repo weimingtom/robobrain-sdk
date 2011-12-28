@@ -110,6 +110,9 @@ public class Entity {
 	 * The amount of time elapsed since the last frame.
 	 */
 	public void update(long time) {
+	    if (mRenderable == null) {
+	        return;
+	    }
 		vx = dx * (mSpeed * GLRenderer.getScale());
 		vy = dy * (mSpeed * GLRenderer.getScale());
 		vx *= mFriction;
@@ -153,6 +156,9 @@ public class Entity {
 	 * The Entity's position along the X axis.
 	 */
 	public void setX(float x) {
+	    if (mRenderable == null) {
+            return;
+        }
 		mRenderable.x = x;
 	}
 	
@@ -163,6 +169,9 @@ public class Entity {
 	 * The Entity's position along the X axis.
 	 */
 	public float getX() {
+	    if (mRenderable == null) {
+            return 0;
+        }
 		return mRenderable.x;
 	}
 	
@@ -173,6 +182,9 @@ public class Entity {
 	 * The Entity's position along the Y axis.
 	 */
 	public void setY(float y) {
+	    if (mRenderable == null) {
+            return;
+        }
 		mRenderable.y = y;
 	}
 	
@@ -183,6 +195,9 @@ public class Entity {
 	 * The Entity's position along the Y axis.
 	 */
 	public float getY() {
+	    if (mRenderable == null) {
+            return 0;
+        }
 		return mRenderable.y;
 	}
 	
@@ -192,6 +207,9 @@ public class Entity {
 	 * The Entity's width in pixels.
 	 */
 	public int getWidth() {
+	    if (mRenderable == null) {
+            return 0;
+        }
 		return mRenderable.getWidth();
 	}
 	
@@ -201,6 +219,9 @@ public class Entity {
 	 * The Entity's height in pixels.
 	 */
 	public int getHeight() {
+	    if (mRenderable == null) {
+            return 0;
+        }
 		return mRenderable.getHeight();
 	}
 	
@@ -210,6 +231,9 @@ public class Entity {
 	 * The angle of rotation. 0 = none, 360 = completely turned around.
 	 */
 	public float getRotation() {
+	    if (mRenderable == null) {
+            return 0;
+        }
 		return mRenderable.rotation;
 	}
 	
@@ -219,6 +243,9 @@ public class Entity {
 	 * The angle of rotation. 0 = none, 360 = completely turned around.
 	 */
 	public void setRotation(float angle) {
+	    if (mRenderable == null) {
+            return;
+        }
 		mRenderable.rotation = angle;
 	}
 	
@@ -228,6 +255,9 @@ public class Entity {
 	 * The amount the Entity has been scaled. 1 = normal size.
 	 */
 	public float getScale() {
+	    if (mRenderable == null) {
+            return 1.0f;
+        }
 		return mRenderable.scale;
 	}
 	
@@ -237,6 +267,9 @@ public class Entity {
 	 * The amount to scale the Entity by. 1 = normal size.
 	 */
 	public void setScale(float angle) {
+	    if (mRenderable == null) {
+            return;
+        }
 		mRenderable.scale = angle;
 	}
 	
@@ -256,6 +289,9 @@ public class Entity {
 	 * The Entity's bounding Rectangle.
 	 */
 	public Rectangle getRect() {
+	    if (mRenderable == null) {
+            return null;
+        }
 		return new Rectangle((int)(mRenderable.x - mRenderable.getHalfWidth()),
 							 (int)(mRenderable.y - mRenderable.getHalfHeight()),
 							 mRenderable.getWidth(),
@@ -279,6 +315,9 @@ public class Entity {
 	 */
 	public boolean hasCollided(Entity receiver) {
 		Rectangle rect = getCollisionRect();
+		if (rect == null) {
+		    return false;
+		}
 		if (rect.intersects(receiver.getCollisionRect())) {
 			return true;
 		} else {
@@ -302,6 +341,12 @@ public class Entity {
 	 * A valid OpenGL ES 1.0 object.
 	 */
 	public void draw(GL10 gl) {
+	    if (mRenderable == null) {
+            return;
+        }
+	    if (gl == null) {
+	        return;
+	    }
 		mRenderable.draw(gl);
 	}
 	
