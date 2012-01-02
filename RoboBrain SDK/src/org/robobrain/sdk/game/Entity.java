@@ -123,6 +123,15 @@ public class Entity {
 	}
 	
 	/**
+	 * Refreshes the Entity's texture after an OpenGL reset.
+	 */
+	public void updateTexture() {
+	    if (mRenderable != null) {
+	        mRenderable.updateTexture();
+	    }
+	}
+	
+	/**
 	 * Called when the Entity collides with another Entity.
 	 * @param sender
 	 * The Entity this one has collided with.
