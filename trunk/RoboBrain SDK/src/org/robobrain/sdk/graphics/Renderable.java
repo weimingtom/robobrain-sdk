@@ -62,6 +62,13 @@ public class Renderable {
 	 */
 	public void update(long time) {}
 	
+	
+	/**
+	 * Gets a new copy of the Renderable's texture from 
+	 * the TextureManager.
+	 */
+	public void updateTexture() { }
+	
 	/**
 	 * Draws the Renderable to the screen.
 	 * @param gl
