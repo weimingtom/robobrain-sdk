@@ -112,10 +112,12 @@ public class Engine {
 	
 	/**
 	 * Called when OpenGL is being reset. Forces World to refresh sprite textures.
+	 * Call this function after OpenGL has been reset by GLView and all resources 
+	 * need to be rebuilt.
 	 */
 	public void glReset() {
 	    if (mWorld != null) {
-	        mWorld.onReset();
+	        mWorld.onGlReset();
 	    }
 	}
 	

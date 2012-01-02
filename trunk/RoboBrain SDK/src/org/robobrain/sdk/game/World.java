@@ -88,7 +88,9 @@ public class World extends Entity {
 	}
 	
 	/**
-	 * Refreshes all sprite textures after OpenGL is reset.
+	 * Refreshes all sprite textures after OpenGL is reset. Call 
+	 * this function after OpenGL has been reset by GL View and 
+	 * all resources need to be built.
 	 */
 	public void onGlReset()
 	{
