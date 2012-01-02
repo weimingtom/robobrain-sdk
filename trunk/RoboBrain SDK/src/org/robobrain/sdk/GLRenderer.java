@@ -73,6 +73,11 @@ public class GLRenderer implements GLSurfaceView.Renderer {
 		
 		setClearColor(mClearColor);		
 		TextureManager.loadAll();
+		
+		// Reset textures in all sprites when gl reloads them
+		if (mEngine != null) {
+		    mEngine.glReset();
+		}
 	}
 	
 	/**
