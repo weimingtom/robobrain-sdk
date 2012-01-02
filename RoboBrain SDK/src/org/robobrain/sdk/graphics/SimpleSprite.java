@@ -76,6 +76,15 @@ public class SimpleSprite extends Renderable {
 	}
 	
 	/**
+     * Gets a new copy of the Renderable's texture from 
+     * the TextureManager.
+     */
+    @Override 
+    public void updateTexture() {
+        mTexture = TextureManager.getTexture(mTexture.getID());
+    }
+	
+	/**
 	 * Draws the Texture to the screen.
 	 * @param gl
 	 * A valid OpenGL ES 1.0 object.
