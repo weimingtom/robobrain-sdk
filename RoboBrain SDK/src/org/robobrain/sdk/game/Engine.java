@@ -82,6 +82,10 @@ public class Engine {
 		Multitouch.clear();
 	}
 	
+	/**
+	 * Draws all sprites.
+	 * @param gl   A valid OpenGL ES 1.0 object.
+	 */
 	public void render(GL10 gl) {
 		if (mPaused) {
 			return;
@@ -104,6 +108,15 @@ public class Engine {
 	 */
 	public void play() {
 		mPaused = false;
+	}
+	
+	/**
+	 * Called when OpenGL is being reset. Forces World to refresh sprite textures.
+	 */
+	public void glReset() {
+	    if (mWorld != null) {
+	        mWorld.onReset();
+	    }
 	}
 	
 	/**
