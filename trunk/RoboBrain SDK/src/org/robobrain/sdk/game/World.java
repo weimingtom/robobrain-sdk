@@ -87,6 +87,18 @@ public class World extends Entity {
 		}
 	}
 	
+	/**
+	 * Refreshes all sprite textures after OpenGL is reset.
+	 */
+	public void onGlReset()
+	{
+	    int count = mEntities.size();
+        for (int i = 0; i < count; i++) {
+            Entity e = mEntities.get(i);
+            e.updateTexture();
+        }
+	}
+	
 	public void render(GL10 gl) {
 		int c = mEntities.size();
 		for (int i = 0; i < c; i++) {
