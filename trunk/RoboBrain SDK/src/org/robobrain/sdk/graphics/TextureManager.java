@@ -100,6 +100,7 @@ public class TextureManager {
 			mTextures.put(t.getID(), t);
 		}
 		
+		Log.d("TextureManager", "Tex - File: " + t.getFilename() + ", Id:" + t.getID()+ ", GL Id: " + t.getGLID());
 		return t;
 	}
 	
@@ -111,9 +112,12 @@ public class TextureManager {
 			return;
 		}
 		for (Texture tex : mTextures.values()) {
-			unloadTexture(tex);
-			mTextures.remove(tex.getID());
-			mTextures.put(tex.getID(), tex);
+			Texture t = unloadTexture(tex);
+			if (t != null) {
+			    int id = tex.getID();
+			    mTextures.remove(id);
+			    mTextures.put(id, t);
+			}
 		}
 		//mTextures.clear();
 	}
@@ -138,10 +142,11 @@ public class TextureManager {
 		Log.d("Loading Textures", "Number = " + mTextures.size());
 		for (Texture tex : mTextures.values()) {
 			if (!tex.loaded) {
-				tex = loadTexture(tex.getFilename(), tex.getID());
-				Log.v("Loading Texture", "file: " + tex.getFilename());
-				mTextures.remove(tex.getID());
-				mTextures.put(tex.getID(), tex);
+			    int id = tex.getID();
+				Texture t = loadTexture(tex.getFilename(), id);
+				//Log.v("Loading Texture", "file: " + tex.getFilename());
+				mTextures.remove(id);
+				mTextures.put(id, t);
 			}
 		}
 	}
@@ -202,17 +207,19 @@ public class TextureManager {
 	}
 	
 	// Deletes one texture from video memory.
-	private static void unloadTexture(Texture texture) {
+	private static Texture unloadTexture(Texture texture) {
 		if (texture == null) {
-			return;
+			return null;
 		}
 		if (!texture.loaded) {
-			return;
+			return null;
 		}
 		GL10 gl = GLRenderer.getGL();
-		gl.glBindTexture(GL10.GL_TEXTURE_2D, texture.getGLID());
-		int ids[] = { texture.getGLID() };
+		int glID = texture.getGLID();
+		gl.glBindTexture(GL10.GL_TEXTURE_2D, glID);
+		int ids[] = { glID };
 		gl.glDeleteTextures(1, ids, 0);
 		texture.loaded = false;
+		return texture;
 	}
 }
