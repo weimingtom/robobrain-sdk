@@ -1,16 +1,61 @@
-r69 | robobrainsdk@gmail.com | 2011-12-21 21:03:57 EST
-Changed paths:
-    D /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.1.jar
-    A /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.4.jar
-    D /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.2.jar
 
-Beta 0.2.4 libraries.
+r82 | robobrainsdk@gmail.com | 2012-01-02 14:50:16 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
+
+Cleaned up obscure code.
 ----------------------------------------------------------------------------
-r68 | robobrainsdk@gmail.com | 2011-12-21 21:02:33 EST
+r81 | robobrainsdk@gmail.com | 2012-01-02 14:49:52 EST
 Changed paths:
-    A /trunk/RoboBrain SDK/lib/robobrain-beta-0.2.3.1.jar
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/SimpleSprite.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Renderable.java
 
-Bug fix library for Space Rocks tutorial 3.
+Added updateTexture() method.
+----------------------------------------------------------------------------
+r80 | robobrainsdk@gmail.com | 2012-01-02 14:48:03 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Engine.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Added better documentation.
+----------------------------------------------------------------------------
+r79 | robobrainsdk@gmail.com | 2012-01-02 14:46:49 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Added onGlReset() method. 
+----------------------------------------------------------------------------
+r78 | robobrainsdk@gmail.com | 2012-01-02 14:45:09 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Engine.java
+
+Added glReset() method. 
+----------------------------------------------------------------------------
+r77 | robobrainsdk@gmail.com | 2012-01-02 14:44:44 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added updateTexture() function.
+----------------------------------------------------------------------------
+r76 | robobrainsdk@gmail.com | 2012-01-02 14:42:10 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/GLRenderer.java
+
+Added code to force the game engine to refresh the textures in all sprites after a gl reset.
+
+----------------------------------------------------------------------------
+r74 | robobrainsdk@gmail.com | 2011-12-28 16:21:29 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Changed Entity to stop if from throwing exceptions if mRenderable is null. Now it just draws nothing.
+----------------------------------------------------------------------------
+r73 | robobrainsdk@gmail.com | 2011-12-28 16:20:40 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Rectangle.java
+
+Changed Rectangle.intersects() to test for a null rect being passed in.
 ----------------------------------------------------------------------------
 r67 | robobrainsdk@gmail.com | 2011-12-21 21:01:33 EST
 Changed paths:
@@ -31,17 +76,6 @@ Changed paths:
     M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
 
 Refactored World.update() to use new Entity collision rectangle and collision detection functions.
-----------------------------------------------------------------------------
-r58 | robobrainsdk@gmail.com | 2011-12-14 20:51:41 EST
-Changed paths:
-    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/util/package-info.java
-    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/package-info.java
-    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/input/package-info.java
-    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/package-info.java
-    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/package-info.java
-    A /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/package-info.java
-
-Added package level javadoc comments.
 ----------------------------------------------------------------------------
 r57 | robobrainsdk@gmail.com | 2011-12-14 20:50:59 EST
 Changed paths:
