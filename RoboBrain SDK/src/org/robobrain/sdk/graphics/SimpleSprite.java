@@ -104,6 +104,14 @@ public class SimpleSprite extends Renderable {
 		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, mIndices);
 	}
 	
+	public void draw(GL10 gl, float x, float y, float rotation, float scale) {
+	    this.x = x;
+	    this.y = y;
+	    this.rotation = rotation;
+	    this.scale = scale;
+	    this.draw(gl);
+	}
+	
 	private void generateFrameVerts() {	
 		// Vertices
 		float[] verts = { 

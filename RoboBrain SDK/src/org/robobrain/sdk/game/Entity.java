@@ -46,6 +46,9 @@ public class Entity {
      */
     public float y;
     
+    public float rotation;
+    public float scale;
+    
 	/**
 	 * The Entity's velocity along the X axis.
 	 */
@@ -93,6 +96,10 @@ public class Entity {
 	public boolean remove;
 	
 	public Entity() {
+	    x = 0;
+	    y = 0;
+	    rotation = 0;
+	    scale = 1.0f;
 		vx = 0;
 		vy = 0;
 		dx = 0;
@@ -165,10 +172,7 @@ public class Entity {
 	 * The Entity's position along the X axis.
 	 */
 	public void setX(float x) {
-	    if (mRenderable == null) {
-            return;
-        }
-		mRenderable.x = x;
+	    this.x = x;
 	}
 	
 	/**
@@ -178,10 +182,7 @@ public class Entity {
 	 * The Entity's position along the X axis.
 	 */
 	public float getX() {
-	    if (mRenderable == null) {
-            return 0;
-        }
-		return mRenderable.x;
+	    return this.x;
 	}
 	
 	/**
@@ -191,10 +192,7 @@ public class Entity {
 	 * The Entity's position along the Y axis.
 	 */
 	public void setY(float y) {
-	    if (mRenderable == null) {
-            return;
-        }
-		mRenderable.y = y;
+	    this.y = y;
 	}
 	
 	/**
@@ -204,10 +202,7 @@ public class Entity {
 	 * The Entity's position along the Y axis.
 	 */
 	public float getY() {
-	    if (mRenderable == null) {
-            return 0;
-        }
-		return mRenderable.y;
+	    return this.y;
 	}
 	
 	/**
@@ -239,11 +234,9 @@ public class Entity {
 	 * @return
 	 * The angle of rotation. 0 = none, 360 = completely turned around.
 	 */
+	@Deprecated
 	public float getRotation() {
-	    if (mRenderable == null) {
-            return 0;
-        }
-		return mRenderable.rotation;
+	    return this.rotation;
 	}
 	
 	/**
@@ -251,11 +244,9 @@ public class Entity {
 	 * @param angle
 	 * The angle of rotation. 0 = none, 360 = completely turned around.
 	 */
+	@Deprecated
 	public void setRotation(float angle) {
-	    if (mRenderable == null) {
-            return;
-        }
-		mRenderable.rotation = angle;
+	    this.rotation = angle;
 	}
 	
 	/**
@@ -263,11 +254,9 @@ public class Entity {
 	 * @return
 	 * The amount the Entity has been scaled. 1 = normal size.
 	 */
+	@Deprecated
 	public float getScale() {
-	    if (mRenderable == null) {
-            return 1.0f;
-        }
-		return mRenderable.scale;
+	    return this.scale;
 	}
 	
 	/**
@@ -275,11 +264,9 @@ public class Entity {
 	 * @param angle
 	 * The amount to scale the Entity by. 1 = normal size.
 	 */
+	@Deprecated
 	public void setScale(float angle) {
-	    if (mRenderable == null) {
-            return;
-        }
-		mRenderable.scale = angle;
+	    this.scale = angle;
 	}
 	
 	/**
@@ -356,7 +343,7 @@ public class Entity {
 	    if (gl == null) {
 	        return;
 	    }
-		mRenderable.draw(gl);
+		mRenderable.draw(gl, x, y, rotation, scale);
 	}
 	
 	// TODO: Add kill() function

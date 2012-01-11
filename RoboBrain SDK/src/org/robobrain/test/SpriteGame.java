@@ -1,5 +1,7 @@
 package org.robobrain.test;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import org.robobrain.sdk.game.Engine;
 import org.robobrain.sdk.game.Entity;
 import org.robobrain.sdk.game.World;
@@ -27,8 +29,8 @@ public class SpriteGame extends Engine {
 			Bat bat = new Bat();
 			float w = ((float)Math.random() * (float)mWorld.getWidth());
 			float h = ((float)Math.random() * (float)mWorld.getHeight());
-			bat.setX(w);
-			bat.setY(h);
+			bat.x = w;
+			bat.y = h;
 			mWorld.addEntity(bat);
 		}
 	}
@@ -41,5 +43,10 @@ class Bat extends Entity {
 		Sprite s = new Sprite(t, 64, 64, 4);
 		mRenderable = s;
 		mSpeed = 0.5f;
+	}
+	
+	@Override 
+	public void draw(GL10 gl) {
+	    super.draw(gl);
 	}
 }

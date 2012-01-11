@@ -165,11 +165,25 @@ public class Sprite extends Renderable{
 		}
 		gl.glMatrixMode(GL10.GL_MODELVIEW);
 		gl.glLoadIdentity();
-		gl.glTranslatef(x, y, 0);
-		gl.glRotatef(rotation, 0, 0, 1);
-		gl.glScalef(scale * GLRenderer.getScale(), scale * GLRenderer.getScale(), 1.0f);
+		gl.glTranslatef(this.x, this.y, 0);
+		gl.glRotatef(this.rotation, 0, 0, 1);
+		gl.glScalef(this.scale * GLRenderer.getScale(), this.scale * GLRenderer.getScale(), 1.0f);
 		gl.glDrawElements(GL10.GL_TRIANGLES, 6, GL10.GL_UNSIGNED_SHORT, mIndices);
 	}
+	
+	/**
+     * Draws the Texture to the screen.
+     * @param gl
+     * A valid OpenGL ES 1.0 object.
+     */
+    @Override
+    public void draw(GL10 gl, float x, float y, float rotation, float scale){
+        this.x = x;
+        this.y = y;
+        this.rotation = rotation;
+        this.scale = scale;
+        this.draw(gl);
+    }
 	
 	private void generateFrameVerts() {		
 		
