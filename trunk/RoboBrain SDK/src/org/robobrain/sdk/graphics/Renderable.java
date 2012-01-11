@@ -76,6 +76,8 @@ public class Renderable {
 	 */
 	public void draw(GL10 gl) {}
 	
+	public void draw(GL10 gl, float x, float y, float rotation, float scale) {}
+	
 	/**
 	 * Gets the width of the Renderable.
 	 * @return
