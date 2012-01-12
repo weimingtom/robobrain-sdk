@@ -1,0 +1,237 @@
+r87 | robobrainsdk@gmail.com | 2012-01-10 21:51:49 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/test/SpriteGame.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Renderable.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/SimpleSprite.java
+
+Refactored the World/Entity system so that position, scale, and rotation are public members of Entity instead of Sprite.
+----------------------------------------------------------------------------
+r82 | robobrainsdk@gmail.com | 2012-01-02 14:50:16 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
+
+Cleaned up obscure code.
+----------------------------------------------------------------------------
+r81 | robobrainsdk@gmail.com | 2012-01-02 14:49:52 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/SimpleSprite.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Renderable.java
+
+Added updateTexture() method.
+----------------------------------------------------------------------------
+r80 | robobrainsdk@gmail.com | 2012-01-02 14:48:03 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Engine.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Added better documentation.
+----------------------------------------------------------------------------
+r79 | robobrainsdk@gmail.com | 2012-01-02 14:46:49 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Added onGlReset() method. 
+----------------------------------------------------------------------------
+r78 | robobrainsdk@gmail.com | 2012-01-02 14:45:09 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Engine.java
+
+Added glReset() method. 
+----------------------------------------------------------------------------
+r77 | robobrainsdk@gmail.com | 2012-01-02 14:44:44 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added updateTexture() function.
+----------------------------------------------------------------------------
+r76 | robobrainsdk@gmail.com | 2012-01-02 14:42:10 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/GLRenderer.java
+
+Added code to force the game engine to refresh the textures in all sprites after a gl reset.
+
+----------------------------------------------------------------------------
+r74 | robobrainsdk@gmail.com | 2011-12-28 16:21:29 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Changed Entity to stop if from throwing exceptions if mRenderable is null. Now it just draws nothing.
+----------------------------------------------------------------------------
+r73 | robobrainsdk@gmail.com | 2011-12-28 16:20:40 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Rectangle.java
+
+Changed Rectangle.intersects() to test for a null rect being passed in.
+----------------------------------------------------------------------------
+r67 | robobrainsdk@gmail.com | 2011-12-21 21:01:33 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+
+Fixed divide by zero bug in frame rect calculations.
+Added method to clear accumulated time used to calculate animations.
+----------------------------------------------------------------------------
+r66 | robobrainsdk@gmail.com | 2011-12-21 20:59:34 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added public x,y position fields.
+Deprecated position mutators. (getY(), setX(), etc.)
+----------------------------------------------------------------------------
+r59 | robobrainsdk@gmail.com | 2011-12-14 20:55:48 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Refactored World.update() to use new Entity collision rectangle and collision detection functions.
+----------------------------------------------------------------------------
+r57 | robobrainsdk@gmail.com | 2011-12-14 20:50:59 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added collision rectangle separate from bounding rectangle.
+Added collision detection function.
+----------------------------------------------------------------------------
+r40 | James Johnson | 2011-12-06 21:31:11 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Vector.java
+
+Made Vector a public class.
+----------------------------------------------------------------------------
+r39 | James Johnson | 2011-12-06 21:30:42 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
+
+Changed unloadTexture() to make sure entries in mTextures get updated with 
+unloaded texture references.
+----------------------------------------------------------------------------
+r38 | James Johnson | 2011-12-06 21:18:17 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Renderable.java
+
+Added half size get functions.
+----------------------------------------------------------------------------
+r37 | James Johnson | 2011-12-06 21:17:42 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Rectangle.java
+
+Fixed intersects() method so there are no false positives.
+----------------------------------------------------------------------------
+r36 | James Johnson | 2011-12-06 21:17:00 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Added removeEntity() funtion.
+Added culling of dead entities to the update loop.
+----------------------------------------------------------------------------
+r35 | James Johnson | 2011-12-06 21:15:35 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Added support for entity types.
+Added kill() function.
+----------------------------------------------------------------------------
+r34 | James Johnson | 2011-12-06 21:14:28 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/GameActivity.java
+
+Added garbage collection call when activity closes.
+----------------------------------------------------------------------------
+r18 | James Johnson | 2011-11-27 19:52:29 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/test/SoundActivity.java
+
+Changed event handlers to stop playing sounds on pause and kill the sounds 
+when the Activity is destroyed.
+----------------------------------------------------------------------------
+r17 | James Johnson | 2011-11-27 19:21:52 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Engine.java
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/World.java
+
+Move rendering into GameEngine/World, to optimize array copies.
+----------------------------------------------------------------------------
+r16 | James Johnson | 2011-11-27 19:21:24 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+
+Moved all rendering code into Renderable and its derived classes.
+----------------------------------------------------------------------------
+r15 | James Johnson | 2011-11-27 19:19:00 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/GLRenderer.java
+
+Move rendering into GameEngine/World, to optimize array copies.
+----------------------------------------------------------------------------
+r14 | James Johnson | 2011-11-27 19:15:35 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/SimpleSprite.java
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Renderable.java
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+
+Added visible property.
+----------------------------------------------------------------------------
+r13 | James Johnson | 2011-11-27 19:15:01 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
+
+Handled uncaught exceptions when methods are called after 
+releasing resources.
+Added TextureManager.release() method.
+----------------------------------------------------------------------------
+r12 | James Johnson | 2011-11-27 19:14:14 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/SoundManager.java
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/MusicManager.java
+
+Handled uncaught exceptions when methods are called after 
+releasing resources.
+----------------------------------------------------------------------------
+r11 | James Johnson | 2011-11-27 19:11:22 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/GameActivity.java
+
+Added graceful handling of unloading and destroying resources when paused 
+or destroyed.
+----------------------------------------------------------------------------
+r10 | James Johnson | 2011-11-27 16:06:22 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/audio/SoundManager.java
+
+Fixed sound bug where sounds stop playing after successive play/stop calls.
+Added stopAll() method.
+----------------------------------------------------------------------------
+r9 | James Johnson | 2011-11-27 13:49:31 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/SimpleSprite.java
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+
+Fixed rendering bug where textures weren't updating correctly.
+----------------------------------------------------------------------------
+r7 | James Johnson | 2011-11-26 23:19:51 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+
+Fixed scaling bug.
+Added methods to set the current frame and play & stop the animation.
+----------------------------------------------------------------------------
+r6 | James Johnson | 2011-11-26 23:19:02 EST
+Changed paths:
+	M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Rectangle.java
+
+Added method for checking if points are contained within the Rectangle.
+
+----------------------------------------------------------------------------
+r1-r3 | James Johnson | 2011-11-25 22:18:38 EST
+
+Initial import of source files
+
+----------------------------------------------------------------------------
+Pre SVN | James Johnson | 2011-11-23 20:00:00 EST
+
+- Fixed SoundManager crash bug
+- Added Bitmap Fonts
+- Added TextSprite, TextEntity classes
+- Added standard XML layout support to GLView
+
