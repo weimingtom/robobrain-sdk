@@ -1,4 +1,3 @@
-********************************************************************************
 This is the 2nd BETA release of the RoboBrain SDK. It consists of the library 
 and test programs. You can find both a .jar and source code versions of the 
 library in the folders. 
