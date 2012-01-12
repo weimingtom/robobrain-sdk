@@ -1,4 +1,13 @@
+r87 | robobrainsdk@gmail.com | 2012-01-10 21:51:49 EST
+Changed paths:
+    M /trunk/RoboBrain SDK/src/org/robobrain/test/SpriteGame.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/game/Entity.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Renderable.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/Sprite.java
+    M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/SimpleSprite.java
 
+Refactored the World/Entity system so that position, scale, and rotation are public members of Entity instead of Sprite.
+----------------------------------------------------------------------------
 r82 | robobrainsdk@gmail.com | 2012-01-02 14:50:16 EST
 Changed paths:
     M /trunk/RoboBrain SDK/src/org/robobrain/sdk/graphics/TextureManager.java
